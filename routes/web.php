@@ -23,3 +23,7 @@ Route::group(['as'=>'category.','prefix'=>'category'],function (){
     Route::get('delete/{id}','CategoryController@destroy')->name('delete');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
