@@ -12,7 +12,20 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name'=>''
-        ]);
+            'name'=>'ringku',
+            'role_id'=>1,
+            'email'=>'ringku.mmj@gmail.com',
+            'passsword'=>bcrypt('ringku'),
+            'name'=>'ringku',
+        ],
+            [
+                'name'=>'ringku',
+                'role_id'=>1,
+                'email'=>'ringku.mmj@gmail.com',
+                'passsword'=>bcrypt('ringku'),
+                'name'=>'ringku',
+            ]
+
+            );
     }
 }
