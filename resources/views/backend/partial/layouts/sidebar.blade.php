@@ -36,13 +36,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{url('category')}}" class="nav-link">
+{{--                            <a href="{{url('category')}}" class="nav-link">--}}
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Category</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('category.create')}}" class="nav-link">
+{{--                            <a href="{{route('category.create')}}" class="nav-link">--}}
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add New</p>
                             </a>

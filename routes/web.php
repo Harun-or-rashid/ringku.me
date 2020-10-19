@@ -14,8 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['as'=>'category.','prefix'=>'category'],function (){
-    Route::get('/','CategoryController@index');
+Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],function (){
+    Route::get('/','AdminController@index');
     Route::get('create','CategoryController@create')->name('create');
     Route::post('store','CategoryController@store')->name('store');
     Route::get('edit/{id}','CategoryController@edit')->name('edit');
