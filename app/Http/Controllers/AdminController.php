@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -17,7 +18,7 @@ class AdminController extends Controller
     {
         $users=User::all();
 
-        return view('backend.partial.index');
+        return view('backend.admin.auth.dashboard');
     }
 
     /**
@@ -130,10 +131,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function logout($id)
     {
-        $category=Category::where('id',$id)->find($id);
-        $category->destroy($id);
-        return redirect()->back();
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

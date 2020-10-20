@@ -11,19 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],function (){
-    Route::get('/','AdminController@index');
+    Route::get('/dashboard','AdminController@index')->name('dashboard');
     Route::get('create','CategoryController@create')->name('create');
     Route::post('store','CategoryController@store')->name('store');
     Route::get('edit/{id}','CategoryController@edit')->name('edit');
     Route::post('update/{id}','CategoryController@update')->name('update');
-    Route::get('delete/{id}','CategoryController@destroy')->name('delete');
+    Route::get('','AdminController@logout')->name('logout');
+});
+Route::group(['as'=>'author.','prefix'=>'author','middleware'=>['auth','author']],function (){
+    Route::get('/dashboards','AuthorController@index')->name('dashboard');
+    Route::get('create','CategoryController@create')->name('create');
+    Route::post('store','CategoryController@store')->name('store');
+    Route::get('edit/{id}','CategoryController@edit')->name('edit');
+    Route::post('update/{id}','CategoryController@update')->name('update');
+    Route::get('','AuthorController@logout')->name('logout');
 });
 
 
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
