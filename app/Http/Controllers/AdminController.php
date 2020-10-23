@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class AdminController extends Controller
 {
+//    public function __construct()
+//    {
+//        $this->middleware('admin');
+//    }
     /**
      * Display a listing of the resource.
      *

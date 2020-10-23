@@ -19,7 +19,7 @@ class AuthorMiddleware
         if (Auth::check() && Auth::user()->role->id == 2){
             return $next($request);
         }else{
-            dd('not an author');
+            return redirect()->route('login');
         }
 
 

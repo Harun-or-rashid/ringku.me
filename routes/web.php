@@ -14,9 +14,9 @@
 
 
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth','admin']],function (){
     Route::get('/dashboard','AdminController@index')->name('dashboard');
     Route::get('create','CategoryController@create')->name('create');

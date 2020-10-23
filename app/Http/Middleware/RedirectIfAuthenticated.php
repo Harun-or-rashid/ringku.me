@@ -6,6 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+
 class RedirectIfAuthenticated
 {
     /**
@@ -18,8 +19,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-//        dd('loged');
-        if (Auth::guard($guard)->check() && (Auth::user()->role->id == 1)) {
+
+        if (Auth::guard($guard)->check() && Auth::user()->role->id == 1) {
+
             return redirect()->route('admin.dashboard');
         }elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 2){
             return redirect()->route('author.dashboard');
